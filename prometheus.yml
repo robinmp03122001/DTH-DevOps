@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'dth_app'
+    static_configs:
+      - targets: ['dth-app:5000']
