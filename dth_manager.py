@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, render_template_string, request, redirect, url_for, jsonify
+from flask import Flask, render_template_string, request, redirect, url_for, jsonify, Response
 from prometheus_client import Counter, generate_latest, Gauge
 import time
 
@@ -142,7 +142,7 @@ def delete_subscriber(id):
 
 @app.route('/metrics')
 def metrics():
-    return generate_latest()
+    return Response(generate_latest(), mimetype='text/plain')
 
 @app.route('/health')
 def health():
