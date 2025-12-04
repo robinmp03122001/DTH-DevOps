@@ -1,0 +1,26 @@
+name: CD Pipeline - Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to Server via SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # 1. Go to the project folder
+            cd DTH-DevOps
+            
+            # 2. Pull the latest code
+            git pull origin main
+            
+            # 3. Restart the containers (Using sudo because of permissions)
+            sudo docker-compose down
+            sudo docker-compose up -d --build
