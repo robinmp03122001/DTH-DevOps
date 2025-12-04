@@ -61,7 +61,7 @@ def index():
     <body class="bg-gray-100 p-8">
         <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="bg-blue-600 p-4">
-                <h1 class="text-white text-2xl font-bold">📡 SkyHigh DTH Management</h1>
+                <h1 class="text-white text-2xl font-bold">🚀 SkyHigh DTH - AUTO DEPLOYED!</h1>
                 <p class="text-blue-100">DevOps Practice App v1.0</p>
             </div>
             
