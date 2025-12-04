@@ -142,6 +142,7 @@ def delete_subscriber(id):
 
 @app.route('/metrics')
 def metrics():
+    # This is the FIX: We explicitly set mimetype to text/plain
     return Response(generate_latest(), mimetype='text/plain')
 
 @app.route('/health')
